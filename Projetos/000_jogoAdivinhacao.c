@@ -74,6 +74,7 @@ void main() {
         //funcao abs transforma o numero em positivo
         double pontosPerdidos = abs((numeroChute - numeroSecreto) / 2.0); //Verificando quantos pontos foram perdidos
         pontos -= pontosPerdidos; //Caso errre, perde pontos
+        
     }
     printf("\nFim do Jogo, o número secreto é: %d\n", numeroSecreto);
     printf("Você fez: %.2f pontos\n", pontos);
