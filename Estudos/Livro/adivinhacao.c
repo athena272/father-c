@@ -56,8 +56,7 @@ void main() {
         int acertou = (numeroSecreto == numeroChute); //Verificando se o numeroSecreto foi acertado    
         int chuteMaior = (numeroChute > numeroSecreto); //Verificando se o chute foi maior que o 
         
-        //Verificando se o numero esta certo
-        if (acertou) 
+        if (acertou) //Verificando se o numero esta certo
         {
             printf("\nParabéns, na %d° tentativa, você acertou o número secreto!!!", i);
             printf("\nVocê é um ótimo jogador!\n");
@@ -74,7 +73,7 @@ void main() {
         //funcao abs transforma o numero em positivo
         double pontosPerdidos = abs((numeroChute - numeroSecreto) / 2.0); //Verificando quantos pontos foram perdidos
         pontos -= pontosPerdidos; //Caso errre, perde pontos
-        
+
     }
     printf("\nFim do Jogo, o número secreto é: %d\n", numeroSecreto);
     printf("Você fez: %.2f pontos\n", pontos);
