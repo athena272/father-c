@@ -103,12 +103,12 @@ void main() {
     }
     else
     {
+        printf("\nFim do Jogo, o número secreto é: %d\n\n", numeroSecreto);
         printf("       \\|/ ____ \\|/    \n");   
         printf("        @~/ ,. \\~@      \n");   
         printf("       /_( \\__/ )_\\    \n");   
         printf("          \\__U_/        \n");
 
-        printf("\nFim do Jogo, o número secreto é: %d\n", numeroSecreto);
         printf("\nVocê perdeu! Tente novamente!\n\n");
     }    
 }
