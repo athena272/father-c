@@ -3,16 +3,23 @@
 # include <time.h>
 
 void main() {
-    printf("************************************\n");
-    printf("* Bem-vindo ao Jogo de Adivinhação *\n");
-    printf("************************************\n");
+    //Imprimi mensagem bonita de boas-vindas
+    printf("\n\n");
+    printf("          P  /_\\  P                              \n");
+    printf("         /_\\_|_|_/_\\                            \n");
+    printf("     n_n | ||. .|| | n_n         Bem vindo ao     \n");
+    printf("     |_|_|nnnn nnnn|_|_|     Jogo de Adivinhação! \n");
+    printf("    |\" \"  |  |_|  |\"  \" |                     \n");
+    printf("    |_____| ' _ ' |_____|                         \n");
+    printf("          \\__|_|__/                              \n");
+    printf("\n\n");
 
     int numeroChute; //guarda o valor do chute
-    float pontos = 1000; //O jogador começa com 1000 pontos
-
+    int acertou; //guarda o valor 1 caso acerte, e 0 caso erre
     int nivel; //guarda o nivel escolhido (1) Fácil (2) Médio (3) Difícil
     int totalTentativas; //Fácil 20 chances, Medio 15 chances, Difícil 6 chances
-    
+    float pontos = 1000; //O jogador começa com 1000 pontos
+
     //Gerar número randomico
     int segundos = time(0); //pegar o numero de segundos de 1970 até hoje
     srand(segundos); //fazer a funcao rand usar esses segundos
@@ -49,17 +56,15 @@ void main() {
             continue;
         }
 
-        printf("\nVocê chutou o número %d!\n", numeroChute);
+        printf("\nVocê chutou o número %d!\n\n", numeroChute);
 
         // imprimirá 0 quando a condição for falsa,
         // e 1 quando ela for verdadeira.
-        int acertou = (numeroSecreto == numeroChute); //Verificando se o numeroSecreto foi acertado    
+        acertou = (numeroSecreto == numeroChute); //Verificando se o numeroSecreto foi acertado    
         int chuteMaior = (numeroChute > numeroSecreto); //Verificando se o chute foi maior que o 
         
         if (acertou) //Verificando se o numero esta certo
         {
-            printf("\nParabéns, na %d° tentativa, você acertou o número secreto!!!", i);
-            printf("\nVocê é um ótimo jogador!\n");
             break; //Sair do laço caso acerte o valor
         } else if(chuteMaior) {
                
@@ -75,8 +80,36 @@ void main() {
         pontos -= pontosPerdidos; //Caso errre, perde pontos
 
     }
-    printf("\nFim do Jogo, o número secreto é: %d\n", numeroSecreto);
-    printf("Você fez: %.2f pontos\n", pontos);
-    printf("Tente jogar de novo, você é incrível!\n");
+    if (acertou)
+    {
+        printf("             OOOOOOOOOOO               \n");
+        printf("         OOOOOOOOOOOOOOOOOOO           \n");
+        printf("      OOOOOO  OOOOOOOOO  OOOOOO        \n");
+        printf("    OOOOOO      OOOOO      OOOOOO      \n");
+        printf("  OOOOOOOO  #   OOOOO  #   OOOOOOOO    \n");
+        printf(" OOOOOOOOOO    OOOOOOO    OOOOOOOOOO   \n");
+        printf("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  \n");
+        printf("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  \n");
+        printf("OOOO  OOOOOOOOOOOOOOOOOOOOOOOOO  OOOO  \n");
+        printf(" OOOO  OOOOOOOOOOOOOOOOOOOOOOO  OOOO   \n");
+        printf("  OOOO   OOOOOOOOOOOOOOOOOOOO  OOOO    \n");
+        printf("    OOOOO   OOOOOOOOOOOOOOO   OOOO     \n");
+        printf("      OOOOOO   OOOOOOOOO   OOOOOO      \n");
+        printf("         OOOOOO         OOOOOO         \n");
+        printf("             OOOOOOOOOOOO              \n");
+        printf("\nParabéns você acertou o número secreto!!!");
+        printf("\nVocê fez: %.2f pontos\n", pontos);
+        printf("Você é um ótimo jogador!\n");
+    }
+    else
+    {
+        printf("       \\|/ ____ \\|/    \n");   
+        printf("        @~/ ,. \\~@      \n");   
+        printf("       /_( \\__/ )_\\    \n");   
+        printf("          \\__U_/        \n");
+
+        printf("\nFim do Jogo, o número secreto é: %d\n", numeroSecreto);
+        printf("\nVocê perdeu! Tente novamente!\n\n");
+    }    
 }
 
