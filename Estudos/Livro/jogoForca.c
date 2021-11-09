@@ -8,10 +8,12 @@ void abertura() {
     printf("/****************/\n\n");
 }
 
-void chuta() {
+void chuta(char chutes[], int tentativas) {
     char chute;
+
     printf("Qual letra? ");
     scanf(" %c", &chute);
+    
     chutes[tentativas] = chute;
     tentativas++;
 }
