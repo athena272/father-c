@@ -60,13 +60,10 @@ void main() {
     boasVindas();
     // código continua aqui
 
-    
     escolhePalavra(palavraSecreta); 
  
     int acertou = 0; //False
     int enforcou = 0; //False
- 
-    
  
     do {
         
