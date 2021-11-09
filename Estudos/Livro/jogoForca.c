@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <string.h>
  
-int main() {
+void main() {
+
+    // imprime cabeçalho
+    printf("/****************/\n");
+    printf("/ Jogo de Forca */\n");
+    printf("/****************/\n\n");
+    // código continua aqui
+
  
     char palavraSecreta[20];
     sprintf(palavraSecreta, "MELANCIA"); //imprimi em um array de char(palavraSecreta) o valor MELANCIA
