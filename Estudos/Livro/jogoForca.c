@@ -71,7 +71,6 @@ void main() {
  
         chuta(chutes, &tentativas);
  
- 
     } while (!acertou && !enforcou); //enquanto não acertar ou morrer enforcado, continuar o jogo'
  
 }
