@@ -53,13 +53,7 @@ void main() {
         }
         printf("\n");
  
-        char chute;
-        printf("Qual letra? ");
-        scanf(" %c", &chute);
- 
-        chutes[tentativas] = chute;
-        tentativas++;
- 
+        chuta(chutes, tentativas);
  
     } while (!acertou && !enforcou); //enquanto não acertar ou morrer enforcado, continuar o jogo'
  
