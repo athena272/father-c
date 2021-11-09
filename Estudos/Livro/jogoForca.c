@@ -3,6 +3,8 @@
  
 //Variáveis Globais
 char palavraSecreta[20];
+char chutes[26];
+int tentativas = 0;
 
 // imprime cabeçalho 
 void boasVindas() {
@@ -64,8 +66,7 @@ void main() {
     int acertou = 0; //False
     int enforcou = 0; //False
  
-    char chutes[26];
-    int tentativas = 0;
+    
  
     do {
         
