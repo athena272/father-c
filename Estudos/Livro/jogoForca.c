@@ -8,6 +8,15 @@ void abertura() {
     printf("/****************/\n\n");
 }
 
+void chuta() {
+    char chute;
+    printf("Qual letra? ");
+    scanf(" %c", &chute);
+    chutes[tentativas] = chute;
+    tentativas++;
+}
+
+
 void main() {
 
     abertura();
