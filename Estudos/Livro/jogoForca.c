@@ -4,7 +4,37 @@
 //Variáveis Globais
 char palavraSecreta[20];
 char chutes[26];
-int tentativas = 0;
+int chutesDados = 0;
+
+int ganhou() {
+    for(int i = 0; i < strlen(palavraSecreta); i++) {
+        if(!jaChutou(palavraSecreta[i])) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int enforcou() {
+ 
+    int erros = 0;
+ 
+    for(int i = 0; i < chutesDados; i++) {
+        
+        int existe = 0;
+ 
+        for(int j = 0; j < strlen(palavrasecreta); j++) {
+            if(chutes[i] == palavrasecreta[j]) {
+                existe = 1;
+                break;
+            }
+        }
+ 
+        if(!existe) erros++;
+    }
+ 
+    return erros >= 5;
+}
 
 // imprime cabeçalho 
 void boasVindas() {
@@ -18,13 +48,13 @@ void chuta() {
     printf("Qual letra? ");
     scanf(" %c", &chute);
  
-    chutes[tentativas] = chute;
+    chutes[chutesDados] = chute;
     
 }
 
 int jaChutou(char letra) {
     int achou = 0;
-    for(int j = 0; j < tentativas; j++) {
+    for(int j = 0; j < chutesDados; j++) {
         if(chutes[j] == letra) {
             achou = 1;
             break;
@@ -36,7 +66,7 @@ int jaChutou(char letra) {
 
 void desenhaForca() {
  
-    printf("Você deu %d chutes até agora\n", tentativas);
+    printf("Você deu %d chutes até agora\n", chutesDados);
     
     for(int i = 0; i < strlen(palavraSecreta); i++) {
  
@@ -63,7 +93,7 @@ void main() {
     escolhePalavra(); 
  
     int acertou = 0; //False
-    int enforcou = 0; //False
+
  
     do {
         
@@ -71,8 +101,8 @@ void main() {
  
         chuta();
 
-        tentativas++;
+        chutesDados++;
  
-    } while (!acertou && !enforcou); //enquanto não acertar ou morrer enforcado, continuar o jogo'
+    } while (!acertou && !enforcou()); //enquanto não acertar ou morrer enforcado, continuar o jogo'
  
 }
