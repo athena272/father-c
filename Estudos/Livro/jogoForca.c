@@ -4,7 +4,7 @@
 int main() {
  
     char palavraSecreta[20];
-    sprintf(palavraSecreta, "MELANCIA");
+    sprintf(palavraSecreta, "MELANCIA"); //imprimi MELANCIA na variável palavraSecreta
  
     int acertou = 0;
     int enforcou = 0;
