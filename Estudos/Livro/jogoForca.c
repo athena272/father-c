@@ -6,6 +6,24 @@ char palavraSecreta[20];
 char chutes[26];
 int chutesDados = 0;
 
+// lista de funções que aparecerão no arquivo
+int enforcou();
+void abertura();
+void chuta();
+int jachutou(char letra);
+int ganhou();
+void desenhaforca();
+void escolhepalavra();
+
+int ganhou() {
+    for(int i = 0; i < strlen(palavraSecreta); i++) {
+        if(!jaChutou(palavraSecreta[i])) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 int enforcou() {
  
     int erros = 0;
@@ -53,15 +71,6 @@ int jaChutou(char letra) {
     }
  
     return achou;
-}
-
-int ganhou() {
-    for(int i = 0; i < strlen(palavraSecreta); i++) {
-        if(!jaChutou(palavraSecreta[i])) {
-            return 0;
-        }
-    }
-    return 1;
 }
 
 void desenhaForca() {
