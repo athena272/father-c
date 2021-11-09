@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
  
+//Variáveis Globais
+char palavraSecreta[20];
+
 // imprime cabeçalho 
 void boasVindas() {
     printf("/****************/\n");
@@ -47,7 +50,7 @@ void desenhaForca(char* palavraSecreta, char* chutes, int tentativas) {
 }
 
 void escolhePalavra(char* palavraSecreta) {
-    sprintf(palavraSecreta, "MELANCIA");
+    sprintf(palavraSecreta, "MELANCIA"); //imprimi em um array de char(palavraSecreta) o valor MELANCIA
 }
 
 void main() {
@@ -55,8 +58,8 @@ void main() {
     boasVindas();
     // código continua aqui
 
-    char palavraSecreta[20];
-    sprintf(palavraSecreta, "MELANCIA"); //imprimi em um array de char(palavraSecreta) o valor MELANCIA
+    
+    escolhePalavra(palavraSecreta); 
  
     int acertou = 0; //False
     int enforcou = 0; //False
