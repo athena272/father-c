@@ -15,7 +15,7 @@ int main() {
     do {
         
         for(int i = 0; i < strlen(palavraSecreta); i++) {
-            int achou = 0;
+            int achou = 0; //False
  
             for(int j = 0; j < tentativas; j++) {
                 if(chutes[j] == palavraSecreta[i]) {
