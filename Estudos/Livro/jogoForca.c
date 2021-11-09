@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
  
+// imprime cabeçalho 
 void abertura() {
     printf("/****************/\n");
     printf("/ Jogo de Forca */\n");
@@ -9,7 +10,6 @@ void abertura() {
 
 void main() {
 
-    // imprime cabeçalho
     abertura();
     // código continua aqui
 
