@@ -103,7 +103,7 @@ void main() {
         printf("      OOOOOO   OOOOOOOOO   OOOOOO      \n");
         printf("         OOOOOO         OOOOOO         \n");
         printf("             OOOOOOOOOOOO              \n\n");
-        printf("Parabéns! Você acertou em %d tentativas!\n", i);
+        printf("Parabéns! Você acertou!\n");
         printf("Você fez %.2f pontos\n", pontos);
         printf("Jogue de novo, você é um bom jogador!\n");
         
