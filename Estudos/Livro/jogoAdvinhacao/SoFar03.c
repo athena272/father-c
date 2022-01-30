@@ -79,7 +79,7 @@ void main() {
         else {
             printf("Seu chute foi menor que o número secreto\n\n");
         }
-        
+
         //Calcula o numero de pontos perdidos
         double pontosPerdidos = abs(chute - numeroSecreto) / 2.0;
         pontos = pontos - pontosPerdidos;
@@ -103,7 +103,7 @@ void main() {
         printf("      OOOOOO   OOOOOOOOO   OOOOOO      \n");
         printf("         OOOOOO         OOOOOO         \n");
         printf("             OOOOOOOOOOOO              \n\n");
-        printf("Parabéns! Você acertou em %d tentativas!\n", totalTentativas);
+        printf("Parabéns! Você acertou em %d tentativas!\n", i);
         printf("Você fez %.2f pontos\n", pontos);
         printf("Jogue de novo, você é um bom jogador!\n");
         
