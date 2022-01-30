@@ -16,7 +16,7 @@ void main() {
     printf("******************************************\n");
 
     int chute;
-    int acertou = 0;
+    int acertou;
     double pontos = 1000;
     
     //GERAR NUMERO SECRETO
@@ -66,7 +66,7 @@ void main() {
             continue;
         }
 
-        int acertou = (chute == numeroSecreto);
+        acertou = (chute == numeroSecreto);
         int maior = chute > numeroSecreto;
 
         if(acertou) {
@@ -74,13 +74,12 @@ void main() {
         }
         else if(maior) {
             printf("Seu chute foi maior que o número secreto\n\n");
-            //como a pessoa errou, precisa perder pontos
-            
+            //como a pessoa errou, precisa perder pontos 
         } 
         else {
             printf("Seu chute foi menor que o número secreto\n\n");
         }
-
+        
         //Calcula o numero de pontos perdidos
         double pontosPerdidos = abs(chute - numeroSecreto) / 2.0;
         pontos = pontos - pontosPerdidos;
@@ -110,11 +109,12 @@ void main() {
         
     }
     else {
+        printf("\n");
         printf("       \\|/ ____ \\|/    \n");   
         printf("        @~/ ,. \\~@      \n");   
         printf("       /_( \\__/ )_\\    \n");   
         printf("          \\__U_/        \n\n");
-        printf("Fim de jogo!\n");
+        printf("Fim de jogo! O número secreto era %d\n", numeroSecreto);
         printf("Você perdeu! Tente novamente!\n");
         
     }
