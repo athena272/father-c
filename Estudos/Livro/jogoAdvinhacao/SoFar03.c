@@ -66,8 +66,8 @@ void main() {
             continue;
         }
 
-        acertou = (chute == numeroSecreto);
-        int maior = chute > numeroSecreto;
+        acertou = (chute == numeroSecreto); //Verifica se acertou o numero secreto
+        int maior = chute > numeroSecreto; //Verifica se o numeroChutado é maior ou menor
 
         if(acertou) {
             break;
