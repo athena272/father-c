@@ -7,7 +7,7 @@ void menuBonito(int m) {
 int numeroTabu() {
     int multiplicador;
  
-    printf("Informe um número para fazermos sua tabuada: ");
+    printf("Informe um numero para fazermos sua tabuada: ");
     scanf("%d", &multiplicador );
 
     return multiplicador;
