@@ -6,14 +6,14 @@
 // definindo as constantes
 #define NUMERO_DE_TENTATIVAS 3
 
-int main() {
+void main() {
 
 	// imprimindo cabecalho bonito do jogo
 	printf("\n\n");
 	printf("          P  /_\\  P                              \n");
 	printf("         /_\\_|_|_/_\\                            \n");
 	printf("     n_n | ||. .|| | n_n         Bem vindo ao     \n");
-	printf("     |_|_|nnnn nnnn|_|_|     Jogo de Adivinhação! \n");
+	printf("     |_|_|nnnn nnnn|_|_|     Jogo de Adivinhacao! \n");
 	printf("    |\" \"  |  |_|  |\"  \" |                     \n");
 	printf("    |_____| ' _ ' |_____|                         \n");
 	printf("          \\__|_|__/                              \n");
@@ -33,7 +33,7 @@ int main() {
 	int numerosecreto = rand() % 100;
 
 	// escolhendo o nivel de dificuldade
-	printf("Qual o nível de dificuldade?\n");
+	printf("Qual o nivel de dificuldade?\n");
 	printf("(1) Facil | (2) Medio | (3) Dificil\n\n");
 	printf("Escolha: ");
 
