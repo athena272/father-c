@@ -1,25 +1,23 @@
 #include <stdio.h>
- 
-void menuBonito(int m) {
-    printf("Tabuada do %d\n\n", m);
+
+void abertura(int mult) {
+	printf("Tabuada do %d\n\n", mult);
 }
 
-int numeroTabu() {
-    int multiplicador;
- 
-    printf("Informe um numero para fazermos sua tabuada: ");
-    scanf("%d", &multiplicador );
-
-    return multiplicador;
-}
- 
-int main() {
-    
-    int numTabu = numeroTabu();
-
-    menuBonito(numTabu);
- 
+void createTable(int mult) {
     for(int i = 1; i <= 10; i++) {
-        printf("%d x %d = %d\n", numTabu, i, numTabu * i);
-    }
+		printf("%d x %d = %d\n", mult, i, mult * i);
+	}
+}
+
+void main() {
+	
+    int multiplicador;
+    printf("Digite um numero para fazer a tabuada: ");
+    scanf("%d", &multiplicador);
+
+	abertura(multiplicador);
+    createTable(multiplicador);
+
+	
 }
