@@ -1,3 +1,0 @@
-C:/Users/guilh/OneDrive/Documentos/TI/GitHubCloud/FatherC/cmake-build-debug/CMakeFiles/FatherC.dir
-C:/Users/guilh/OneDrive/Documentos/TI/GitHubCloud/FatherC/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/guilh/OneDrive/Documentos/TI/GitHubCloud/FatherC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
