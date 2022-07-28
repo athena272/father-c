@@ -1,59 +1,113 @@
 #include <stdio.h>
 #include <string.h>
 
-void abertura() {
+char palavraSecreta[20];
+char chutes[26];
+int chutesDados = 0;
+
+void abertura()
+{
 	printf("/****************/\n");
 	printf("/ Jogo de Forca */\n");
 	printf("/****************/\n\n");
 }
 
-void chuta(char chutes[], int* tentativas) {
+void chuta()
+{
 	char chute;
 	printf("Qual letra? ");
 	scanf(" %c", &chute);
 
-	chutes[*tentativas] = chute;
-	(*tentativas)++;
+	chutes[chutesDados] = chute;
+	// (chutesDados)++;
 }
 
-void main() {
+int jaChutou(char letra)
+{
 
-	char palavrasecreta[20];
-	sprintf(palavrasecreta, "MELANCIA");
+	int achou = 0; // false
 
-	int acertou = 0;//false
-	int enforcou = 0;//false
+	for (int j = 0; j < chutesDados; j++)
+	{
+		if (chutes[j] == letra)
+		{
+			achou = 1;
+			break;
+		}
+	}
 
-	char chutes[26];
-	int tentativas = 0;
+	return achou;
+}
 
-	abertura();
+void desenhaForca()
+{
 
-	do {
-		
-		printf("Voce ja deu %d chutes\n", tentativas);
-		
-		for(int i = 0; i < strlen(palavrasecreta); i++) {
-			int achou = 0;
+	printf("Voce ja deu %d chutes\n", chutesDados);
 
-			for(int j = 0; j < tentativas; j++) {
-				if(chutes[j] == palavrasecreta[i]) {
-					achou = 1;
-					break;
-				}
-			}
+	for (int i = 0; i < strlen(palavraSecreta); i++)
+	{
+		int achou = 0;
 
-			if(achou) {
-				printf("%c ", palavrasecreta[i]);
-			} else {
-				printf("_ ");
+		if (jaChutou(palavraSecreta[i]))
+		{
+			printf("%c ", palavraSecreta[i]);
+		}
+		else
+		{
+			printf("_ ");
+		}
+	}
+	printf("\n");
+}
+
+void escolhePalavra()
+{
+	sprintf(palavraSecreta, "MELANCIA");
+}
+
+int enforcou()
+{
+	int erros = 0; // false
+	// vamos fazer o loop em todos os chutes dados
+	for (int i = 0; i < chutesDados; i++)
+	{
+		int existe = 0;
+		// agora vamos olhar letra a letra da palavra secreta
+		// e ver se encontramos o chute aqui
+		for (int j = 0; j < strlen(palavraSecreta); j++)
+		{
+			if (chutes[i] == palavraSecreta[j])
+			{
+				// encontramos, vamos quebrar o loop
+				existe = 1;
+				break;
 			}
 		}
-		printf("\n");
+		// se não encontrou, soma um na quantidade de erros
+		if (!existe)
+			erros++;
+	}
+	// se tivermos mais do que 5 erros, retornamos 1
+	// caso contrário, retornamos 0.
+	return erros >= 5;
+}
 
-		chuta(chutes, &tentativas);
+void main()
+{
 
+	int acertou = 0; // false
 
-	} while (!acertou && !enforcou);
+	abertura();
+	escolhePalavra(palavraSecreta);
 
+	do
+	{
+
+		desenhaForca();
+
+		chuta();
+
+		chutesDados++;
+
+	} while (!acertou && !enforcou());
 }
