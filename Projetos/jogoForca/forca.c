@@ -120,9 +120,15 @@ void adicionaPalavra()
 			printf("Banco de palavras não disponível\n\n");
 			exit(1);
 		}
-		// escreve a palavra nele
-		fprintf(f, "%s", novaPalavra);
-		// fecha
+		int qtd;
+		fscanf(f, "%d", &qtd);
+		qtd++;
+		fseek(f, 0, SEEK_SET);
+		fprintf(f, "%d", qtd);
+
+		fseek(f, 0, SEEK_END);
+		fprintf(f, "\n%s", novaPalavra);
+
 		fclose(f);
 	}
 }
