@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "forca.h"
 
-//variaveis globais
+// variaveis globais
 char palavraSecreta[20];
 char chutes[26];
 int chutesDados = 0;
@@ -76,7 +77,54 @@ void desenhaForca()
 
 void escolhePalavra()
 {
-	sprintf(palavraSecreta, "MELANCIA");
+	FILE *f;
+
+	f = fopen("palavras.txt", "r");
+	if (f == 0)
+	{
+		printf("Banco de palavras nao disponivel\n\n");
+		exit(1);
+	}
+	int qtdPalavras;
+	fscanf(f, "%d", &qtdPalavras);
+
+	srand(time(0));
+	int randomico = rand() % qtdPalavras;
+
+	for (int i = 0; i <= randomico; i++)
+	{
+		fscanf(f, "%s", palavraSecreta);
+	}
+	fclose(f);
+}
+
+void adicionaPalavra()
+{
+	char quer;
+	print("Voce deseja adicionar uma nova palavra no jogo?[S/N]: ");
+	scanf(" %c", &quer);
+
+	if (quer == 'S' || quer == 's')
+	{
+		char novaPalavra[20];
+
+		printf("Digite a nova palavra, em letras maisculas: ");
+		scanf(" %s", novaPalavra);
+
+		// agora falta salvar no arquvio
+		FILE *f;
+		// abre arquivo
+		f = fopen("palavras.txt", "a");
+		if (f == 0)
+		{
+			printf("Banco de palavras não disponível\n\n");
+			exit(1);
+		}
+		// escreve a palavra nele
+		fprintf(f, "%s", novaPalavra);
+		// fecha
+		fclose(f);
+	}
 }
 
 int enforcou()
