@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "forca.h"
 
+//variaveis globais
 char palavraSecreta[20];
 char chutes[26];
 int chutesDados = 0;
@@ -37,6 +39,18 @@ int jaChutou(char letra)
 	}
 
 	return achou;
+}
+
+int ganhou()
+{
+	for (int i = 0; i < strlen(palavraSecreta); i++)
+	{
+		if (!jaChutou(palavraSecreta[i]))
+		{
+			return 0;
+		}
+	}
+	return 1;
 }
 
 void desenhaForca()
@@ -94,9 +108,6 @@ int enforcou()
 
 void main()
 {
-
-	int acertou = 0; // false
-
 	abertura();
 	escolhePalavra(palavraSecreta);
 
@@ -109,5 +120,5 @@ void main()
 
 		chutesDados++;
 
-	} while (!acertou && !enforcou());
+	} while (!ganhou() && !enforcou());
 }
