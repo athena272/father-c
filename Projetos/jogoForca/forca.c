@@ -203,6 +203,7 @@ void main()
 	} while (!ganhou() && !enforcou());
 	if (ganhou())
 	{
+		printf("A palavra era **%s**\n\n", palavraSecreta);
 		printf("\nParabens, voce ganhou!\n\n");
 
 		printf("       ___________      \n");
