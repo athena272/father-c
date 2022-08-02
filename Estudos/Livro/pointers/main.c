@@ -9,7 +9,6 @@ void main() {
   // imprime o endereço da variável c
   printf("%d %d\n", &c, ponteiro);
 
-
   //imprime o conteúdo da variável c
   printf("%d %d\n", c, *ponteiro); 
 } 
