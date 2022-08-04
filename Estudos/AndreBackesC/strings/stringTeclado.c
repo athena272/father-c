@@ -9,5 +9,4 @@ void main()
   fgets(str1, sizeof(str1), stdin);
 
   printf("%s", str1);
-
 }
