@@ -12,8 +12,7 @@ void main()
   };
   typedef struct tipo TIPO;
 
-  TIPO *Inicio, *Fim, *Auxiliar, *Atual, *Anterior, *
-  , *InicioDisordered;
+  TIPO *Inicio, *Fim, *Auxiliar, *Atual, *Anterior, *InicioDisordered;
   char P[20], R = 'S';
 
   Inicio = NULL;
@@ -30,11 +29,7 @@ void main()
       Auxiliar = Auxiliar->Prox;
     }
     //Loop desordenado
-     while (AuxilarDisordered != NULL)
-    {
-      printf(" %s ", Auxiliar->Palavra);
-      Auxiliar = Auxiliar->Prox;
-    }  
+     
     printf("\n\n Qual palavra deseja inserir? ");
     scanf(" %s", P);
     Auxiliar = (TIPO *)malloc(sizeof(TIPO));
