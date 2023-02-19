@@ -32,6 +32,12 @@ typedef struct
     int amountElements;
 } LIST;
 
-void main()
+void initializeList(LIST *list)
 {
+    list->amountElements = 0;
+}
+
+int main()
+{
+    return 0;
 }
