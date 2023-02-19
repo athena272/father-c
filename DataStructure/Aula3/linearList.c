@@ -5,7 +5,7 @@
     (em memoria principal) dos elementos
     Isto eh, elementos vizinhos na lista estarao em posicoes
     vizinhas na memoria
-*/
+*/ 
 /*
     Inicializar estrutura
     Retornar a quantidade de elementos validos
@@ -31,6 +31,11 @@ typedef struct
     REGISTER list[MAX];
     int amountElements;
 } LIST;
+
+// void initializeList(LIST list)
+// {
+//     list.amountElements = 0;
+// }
 
 void initializeList(LIST *list)
 {
