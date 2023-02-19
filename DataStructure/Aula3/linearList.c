@@ -18,19 +18,19 @@
 #define MAX 50
 
 // implementation
-typedef int TIPOCHAVE;
+typedef int KEYTYPE;
 
 typedef struct
 {
-    TIPOCHAVE chave;
+    KEYTYPE key;
     // Outros campos...
-} REGISTRO;
+} REGISTER;
 
 typedef struct
 {
-    REGISTRO lista[MAX];
-    int qtdElements;
-} LISTA;
+    REGISTER list[MAX];
+    int amountElements;
+} LIST;
 
 void main()
 {
