@@ -54,7 +54,7 @@ int quantityElements(LIST *list)
 
 void showElement(LIST *list)
 {
-    printf("List: \"");
+    printf("List: \" ");
     for (int i = 0; i < list->amountElements; i++)
     {
         printf("%d ", list->list[i].key);
@@ -118,12 +118,18 @@ int main()
     LIST *myList = (LIST *)malloc(sizeof(LIST));
     REGISTER registro1;
     REGISTER registro2;
-    registro1.key = 5;    
-    registro2.key = 11;    
+    REGISTER registro3;
+    registro1.key = 5;
+    registro2.key = 11;
+    registro3.key = 20;
 
     initializeList(myList);
     insertElement(myList, registro1, 0);
     insertElement(myList, registro2, 1);
+    insertElement(myList, registro3, 2);
+    showElement(myList);
+
+    deleteElement(myList, registro2.key);
     showElement(myList);
 
     return 0;
