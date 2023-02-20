@@ -15,6 +15,11 @@
     Excluir elementos da estrutura
     Reinicializar a estrutura
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <stdbool.h>
+
 #define MAX 50
 
 // implementation
@@ -69,12 +74,57 @@ int searchElement(LIST *list, KEYTYPE key)
     return -1;
 }
 
-void insertElement(LIST *list, KEYTYPE key)
+bool insertElement(LIST *list, REGISTER reg, int position)
 {
-    
+    // check is valid position
+    // if the list is full
+    // if the position is negative
+    // if the position is bigger than size of the list
+    if ((list->amountElements == MAX) || (position < 0) || (position > list->amountElements))
+    {
+        return false;
+    }
+    for (int i = list->amountElements; i > position; i--)
+    {
+        list->list[i] = list->list[i - 1];
+    }
+    list->list[position] = reg;
+    list->amountElements++;
+    return true;
+}
+
+bool deleteElement(LIST *list, KEYTYPE key)
+{
+    int position = searchElement(list, key);
+    if (position == -1)
+    {
+        return false;
+    }
+    for (int i = position; i < (list->amountElements - 1); i--)
+    {
+        list->list[i] = list->list[i + 1];
+    }
+    list->amountElements--;
+    return true;
+}
+
+void restartList(LIST *list)
+{
+    list->amountElements = 0;
 }
 
 int main()
 {
+    LIST *myList = (LIST *)malloc(sizeof(LIST));
+    REGISTER registro1;
+    REGISTER registro2;
+    registro1.key = 5;    
+    registro2.key = 11;    
+
+    initializeList(myList);
+    insertElement(myList, registro1, 0);
+    insertElement(myList, registro2, 1);
+    showElement(myList);
+
     return 0;
 }
