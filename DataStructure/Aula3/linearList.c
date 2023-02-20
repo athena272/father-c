@@ -5,7 +5,7 @@
     (em memoria principal) dos elementos
     Isto eh, elementos vizinhos na lista estarao em posicoes
     vizinhas na memoria
-*/ 
+*/
 /*
     Inicializar estrutura
     Retornar a quantidade de elementos validos
@@ -40,6 +40,38 @@ typedef struct
 void initializeList(LIST *list)
 {
     list->amountElements = 0;
+}
+
+int quantityElements(LIST *list)
+{
+    return list->amountElements;
+}
+
+void showElement(LIST *list)
+{
+    printf("List: \"");
+    for (int i = 0; i < list->amountElements; i++)
+    {
+        printf("%d ", list->list[i].key);
+    }
+    printf("\"\n");
+}
+
+int searchElement(LIST *list, KEYTYPE key)
+{
+    for (int i = 0; i < list->amountElements; i++)
+    {
+        if (key == list->list[i].key)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void insertElement(LIST *list, KEYTYPE key)
+{
+    
 }
 
 int main()
