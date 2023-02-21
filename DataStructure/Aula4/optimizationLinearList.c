@@ -131,7 +131,7 @@ bool insertSortElement(LIST *list, REGISTER reg)
 
 bool deleteElement(LIST *list, KEYTYPE key)
 {
-    int position = sentinelSearch(list, key);
+    int position = binarySearch(list, key);
     if (position == -1)
     {
         return false;
