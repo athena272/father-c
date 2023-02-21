@@ -35,7 +35,7 @@ typedef struct
 
 typedef struct
 {
-    REGISTER list[MAX + 1];
+    REGISTER listReg[MAX + 1];
     int amountElements;
 } LIST;
 
@@ -67,7 +67,7 @@ void showElements(LIST *list)
     printf("List: \" ");
     for (int i = 0; i < list->amountElements; i++)
     {
-        printf("%d ", list->list[i].key);
+        printf("%d ", list->listReg[i].key);
     }
     printf("\"\n");
 }
@@ -75,8 +75,8 @@ void showElements(LIST *list)
 int sentinelSearch(LIST *list, KEYTYPE key)
 {
     int i;
-    list->list[list->amountElements].key = key;
-    for (i = 0; list->list[i].key != key; i++)
+    list->listReg[list->amountElements].key = key;
+    for (i = 0; list->listReg[i].key != key; i++)
     {
     }
     if (i == list->amountElements)
@@ -94,11 +94,11 @@ int binarySearch(LIST *list, KEYTYPE key)
     while (left <= right)
     {
         middle = floor((left + right) / 2);
-        if (list->list[middle].key == key)
+        if (list->listReg[middle].key == key)
         {
             return middle;
         }
-        else if (list->list[middle].key < key)
+        else if (list->listReg[middle].key < key)
         {
             left = middle + 1;
         }
@@ -120,11 +120,11 @@ bool insertSortElement(LIST *list, REGISTER reg)
         return false;
     }
     int i = list->amountElements;
-    for (i; i > 0 && (list->list[i - 1].key > reg.key); i--)
+    for (i; i > 0 && (list->listReg[i - 1].key > reg.key); i--)
     {
-        list->list[i] = list->list[i - 1];
+        list->listReg[i] = list->listReg[i - 1];
     }
-    list->list[i] = reg;
+    list->listReg[i] = reg;
     list->amountElements++;
     return true;
 }
@@ -138,7 +138,7 @@ bool deleteElement(LIST *list, KEYTYPE key)
     }
     for (int i = position; i < (list->amountElements - 1); i++)
     {
-        list->list[i] = list->list[i + 1];
+        list->listReg[i] = list->listReg[i + 1];
     }
     list->amountElements--;
     return true;
