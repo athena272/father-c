@@ -34,7 +34,7 @@ typedef struct
 
 typedef struct
 {
-    REGISTER list[MAX];
+    REGISTER listReg[MAX];
     int amountElements;
 } LIST;
 
@@ -66,7 +66,7 @@ void showElements(LIST *list)
     printf("List: \" ");
     for (int i = 0; i < list->amountElements; i++)
     {
-        printf("%d ", list->list[i].key);
+        printf("%d ", list->listReg[i].key);
     }
     printf("\"\n");
 }
@@ -75,7 +75,7 @@ int searchElement(LIST *list, KEYTYPE key)
 {
     for (int i = 0; i < list->amountElements; i++)
     {
-        if (key == list->list[i].key)
+        if (key == list->listReg[i].key)
         {
             return i;
         }
@@ -95,9 +95,9 @@ bool insertElement(LIST *list, REGISTER reg, int position)
     }
     for (int i = list->amountElements; i > position; i--)
     {
-        list->list[i] = list->list[i - 1];
+        list->listReg[i] = list->listReg[i - 1];
     }
-    list->list[position] = reg;
+    list->listReg[position] = reg;
     list->amountElements++;
     return true;
 }
@@ -111,7 +111,7 @@ bool deleteElement(LIST *list, KEYTYPE key)
     }
     for (int i = position; i < (list->amountElements - 1); i++)
     {
-        list->list[i] = list->list[i + 1];
+        list->listReg[i] = list->listReg[i + 1];
     }
     list->amountElements--;
     return true;
