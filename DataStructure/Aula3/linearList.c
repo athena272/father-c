@@ -89,7 +89,7 @@ bool insertElement(LIST *list, REGISTER reg, int position)
     // if the list is full
     // if the position is negative
     // if the position is bigger than size of the list
-    if ((list->amountElements == MAX) || (position < 0) || (position > list->amountElements))
+    if ((list->amountElements >= MAX) || (position < 0) || (position > list->amountElements))
     {
         return false;
     }
