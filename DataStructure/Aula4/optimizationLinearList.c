@@ -85,21 +85,20 @@ int searchSentinel(LIST *list, KEYTYPE key)
     return i;
 }
 
-bool insertElement(LIST *list, REGISTER reg, int position)
+bool insertSortElement(LIST *list, REGISTER reg)
 {
     // check is valid position
     // if the list is full
-    // if the position is negative
-    // if the position is bigger than size of the list
-    if ((list->amountElements == MAX) || (position < 0) || (position > list->amountElements))
+    if ((list->amountElements >= MAX))
     {
         return false;
     }
-    for (int i = list->amountElements; i > position; i--)
+    int i = list->amountElements;
+    for (i; i > 0 && (list->list[i - 1].key > reg.key); i--)
     {
         list->list[i] = list->list[i - 1];
     }
-    list->list[position] = reg;
+    list->list[i] = reg;
     list->amountElements++;
     return true;
 }
@@ -133,12 +132,14 @@ int main()
     REGISTER registro2 = createRegister(11);
     REGISTER registro3 = createRegister(17);
     REGISTER registro4 = createRegister(23);
+    REGISTER registro5 = createRegister(-2);
 
     initializeList(myList);
-    insertElement(myList, registro1, 0);
-    insertElement(myList, registro2, 1);
-    insertElement(myList, registro3, 2);
-    insertElement(myList, registro4, 3);
+    insertSortElement(myList, registro1);
+    insertSortElement(myList, registro2);
+    insertSortElement(myList, registro3);
+    insertSortElement(myList, registro4);
+    insertSortElement(myList, registro5);
     showElements(myList);
 
     printf("%d\n", searchSentinel(myList, registro4.key));
