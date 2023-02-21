@@ -43,6 +43,14 @@ typedef struct
 //     list.amountElements = 0;
 // }
 
+REGISTER createRegister(KEYTYPE key)
+{
+    REGISTER reg;
+    reg.key = key;
+    // initialize other fields as needed
+    return reg;
+}
+
 void initializeList(LIST *list)
 {
     list->amountElements = 0;
@@ -116,17 +124,13 @@ void restartList(LIST *list)
 
 int main()
 {
-    LIST *myList = (LIST *)malloc(sizeof(LIST)); 
+    LIST *myList = (LIST *)malloc(sizeof(LIST));
     // This will set all the bytes in the LIST struct to zero, which initializes all the elements to zero as well. Then, when you insert the fourth element, it will be inserted in position 4, and the loop in showElements() will only print the three valid elements, without the extra zero.
-    memset(myList, 0, sizeof(LIST));
-    REGISTER registro1;
-    REGISTER registro2;
-    REGISTER registro3;
-    REGISTER registro4;
-    registro1.key = 5;
-    registro2.key = 11;
-    registro3.key = 20;
-    registro4.key = 30;
+    // memset(myList, 0, sizeof(LIST));
+    REGISTER registro1 = createRegister(5);
+    REGISTER registro2 = createRegister(11);
+    REGISTER registro3 = createRegister(17);
+    REGISTER registro4 = createRegister(23);
 
     initializeList(myList);
     insertElement(myList, registro1, 0);
@@ -135,7 +139,9 @@ int main()
     insertElement(myList, registro4, 3);
     showElements(myList);
 
-    restartList(myList);
+    printf("%d\n", searchElement(myList, registro4.key));
+
+    deleteElement(myList, registro3.key);
     showElements(myList);
 
     return 0;
