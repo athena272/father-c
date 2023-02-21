@@ -20,6 +20,7 @@
 #include <malloc.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 #define MAX 50
 
@@ -71,7 +72,7 @@ void showElements(LIST *list)
     printf("\"\n");
 }
 
-int searchSentinel(LIST *list, KEYTYPE key)
+int sentinelSearch(LIST *list, KEYTYPE key)
 {
     int i;
     list->list[list->amountElements].key = key;
@@ -83,6 +84,31 @@ int searchSentinel(LIST *list, KEYTYPE key)
         return -1;
     }
     return i;
+}
+
+int binarySearch(LIST *list, KEYTYPE key)
+{
+    int left, right, middle;
+    left = 0;
+    right = list->amountElements - 1;
+    while (left <= right)
+    {
+        middle = floor((left + right) / 2);
+        if (list->list[middle].key == key)
+        {
+            return middle;
+        }
+        else if (list->list[middle].key < key)
+        {
+            left = middle + 1;
+        }
+        else
+        {
+            right = middle - 1;
+        }
+    }
+
+    return -1;
 }
 
 bool insertSortElement(LIST *list, REGISTER reg)
@@ -105,7 +131,7 @@ bool insertSortElement(LIST *list, REGISTER reg)
 
 bool deleteElement(LIST *list, KEYTYPE key)
 {
-    int position = searchSentinel(list, key);
+    int position = sentinelSearch(list, key);
     if (position == -1)
     {
         return false;
@@ -133,6 +159,7 @@ int main()
     REGISTER registro3 = createRegister(17);
     REGISTER registro4 = createRegister(23);
     REGISTER registro5 = createRegister(-2);
+    REGISTER registro6 = createRegister(19);
 
     initializeList(myList);
     insertSortElement(myList, registro1);
@@ -140,9 +167,10 @@ int main()
     insertSortElement(myList, registro3);
     insertSortElement(myList, registro4);
     insertSortElement(myList, registro5);
+    insertSortElement(myList, registro6);
     showElements(myList);
 
-    printf("%d\n", searchSentinel(myList, registro4.key));
+    printf("%d\n", binarySearch(myList, registro3.key));
 
     return 0;
 }
