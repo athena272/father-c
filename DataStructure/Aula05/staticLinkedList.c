@@ -92,12 +92,12 @@ int ordSequencialSearch(LIST *list, KEYTYPE key)
 
 int getNode(LIST *list)
 {
-    int result = list->available;
+    int postion = list->available;
     if (list->available != INVALID)
     {
         list->available = list->listElem[list->available].next;
     }
-    return result;
+    return postion;
 }
 
 bool insertElement(LIST *list, REGISTER reg)
@@ -140,6 +140,6 @@ bool insertElement(LIST *list, REGISTER reg)
 int main()
 {
     ELEMENT element0 = createElement(4, 1);
-    
+
     return 0;
 }
