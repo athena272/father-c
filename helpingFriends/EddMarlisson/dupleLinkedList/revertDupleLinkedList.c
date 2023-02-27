@@ -131,22 +131,40 @@ void destruir(LISTA *l)
 */
 void inverter(LISTA *l)
 {
-    NO *atual = l->cabeca;
-    NO *proximo;
+    // NO *atual = l->cabeca;
+    // NO *proximo;
+
+    // while (atual != NULL)
+    // {
+    //     proximo = atual->prox;
+    //     atual->prox = atual->ant;
+    //     atual->ant = proximo;
+    //     if (proximo == NULL) // se chegou ao fim da lista
+    //     {
+    //         l->cabeca = atual; // inverte a cabeça e a cauda
+    //         l->cauda = l->cabeca->ant;
+    //     }
+    //     atual = proximo;
+    // }
+    // l->cauda->prox = NULL; // define o último nó como cauda
+    NO *atual = l->cauda;
+    NO *proximo = NULL;
+    NO *anterior = NULL;
 
     while (atual != NULL)
     {
-        proximo = atual->prox;
-        atual->prox = atual->ant;
-        atual->ant = proximo;
-        if (proximo == NULL) // se chegou ao fim da lista
-        {
-            l->cabeca = atual; // inverte a cabeça e a cauda
-            l->cauda = l->cabeca->ant;
-        }
+        proximo = atual->ant;
+        atual->ant = anterior;
+        atual->prox = proximo;
+        anterior = atual;
         atual = proximo;
     }
-    l->cauda->prox = NULL; // define o último nó como cauda
+    if (proximo == NULL) // se chegou ao fim da lista
+    {
+
+        l->cabeca = l->cauda; // inverte a cabe�a e a cauda
+        l->cauda = anterior;
+    }
 }
 
 /////////////////////////////////////////////////////
