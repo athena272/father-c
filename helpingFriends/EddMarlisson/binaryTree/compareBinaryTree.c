@@ -265,8 +265,12 @@ bool iguais(ARVORE_BINARIA *arv1, ARVORE_BINARIA *arv2)
     }
     // compara as subarvores da esquerda e direita recursivamente
     bool subArvEsqIguais = iguais(arv1->esq, arv2->esq);
-    bool subArvDirIguais = iguais(arv1->dir, arv2->dir);
+    if (!subArvEsqIguais)
+    {
+        return false;
+    }
     
+    bool subArvDirIguais = iguais(arv1->dir, arv2->dir);
     return subArvEsqIguais && subArvDirIguais;
 }
 
